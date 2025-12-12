@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pakbet Recipe</title>
+
+  <!-- NEW FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto+Slab:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* 🌌 BODY + BACKGROUND */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('N.jpg') no-repeat center center fixed;
+      background-size: cover;
+      animation: bgZoom 25s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgZoom {
+      0% { background-size: 100%; background-position: center; }
+      50% { background-size: 105%; background-position: top; }
+      100% { background-size: 100%; background-position: bottom; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 🌟 WRAPPER */
+    .wrapper {
+      width: 90%;
+      max-width: 1100px;
+      padding: 35px 50px;
+      border-radius: 18px;
+      background: rgba(20,20,35,0.25);  /* lighter overlay */
+      backdrop-filter: blur(4px);       /* reduced blur */
+      box-shadow: 0 0 25px rgba(0,0,0,0.45);
+      animation: fadeIn 1.5s ease;
+    }
+
+    /* TITLE */
+    h1 {
+      text-align: center;
+      font-family: 'Anton', sans-serif; /* New strong font for Pakbet */
+      font-size: 4em; /* bigger title */
+      color: #ffcc66;
+      text-shadow: 0 0 15px rgba(255,204,102,0.5), 0 0 30px rgba(255,170,50,0.35);
+      margin-bottom: 10px;
+    }
+
+    p.subtitle {
+      text-align: center;
+      font-size: 1.1em;
+      margin-bottom: 35px;
+      color: #ffeac2;
+      text-shadow: 0 0 8px rgba(255,230,180,0.4);
+    }
+
+    /* GRID CARDS */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .card {
+      background: rgba(15,15,30,0.35);
+      padding: 25px;
+      border-radius: 20px;
+      border: 2px solid rgba(255,180,80,0.4);
+      box-shadow: 0 0 10px rgba(255,180,80,0.25), 0 0 20px rgba(0,0,0,0.3);
+      color: #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(255,180,80,0.6), 0 0 35px rgba(255,160,60,0.45);
+    }
+
+    h2 {
+      text-align: center;
+      font-family: 'Roboto Slab', serif;
+      color: #ffcc66;
+      margin-bottom: 15px;
+      font-size: 2em; /* bigger headings */
+      text-shadow: 0 0 8px rgba(255,204,102,0.4);
+    }
+
+    ul, ol {
+      line-height: 1.8;
+      padding-left: 25px;
+      font-size: 1.1em;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    /* RESPONSIVE GRID */
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>Pakbet</h1>
+    <p class="subtitle">A classic Filipino vegetable dish simmered in bagoong—rich, savory, and bursting with earthy flavors.</p>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Ingredients</h2>
+        <ul>
+          <li>1 cup squash (cut into cubes)</li>
+          <li>1 cup eggplant (sliced)</li>
+          <li>1 cup bitter melon / ampalaya (sliced)</li>
+          <li>1 cup string beans (cut into 2-inch pieces)</li>
+          <li>1 cup okra</li>
+          <li>1 tomato (chopped)</li>
+          <li>1 onion (chopped)</li>
+          <li>2 cloves garlic (minced)</li>
+          <li>3 tbsp bagoong alamang</li>
+          <li>1/2 cup water</li>
+          <li>Salt & pepper to taste</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Procedure</h2>
+        <ol>
+          <li>Sauté garlic, onion, and tomato in a pot until fragrant.</li>
+          <li>Add the squash first and cook for 3 minutes.</li>
+          <li>Add string beans, ampalaya, okra, and eggplant.</li>
+          <li>Pour in bagoong alamang and water.</li>
+          <li>Cover and simmer until vegetables are tender.</li>
+          <li>Season with salt and pepper.</li>
+          <li>Serve hot and enjoy!</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

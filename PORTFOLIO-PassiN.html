@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nel Harvey M. Passi | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET ===== */
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Roboto', sans-serif;
+  color:#fff;
+  background: linear-gradient(135deg, #0a0a12 0%, #11112b 100%);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: fixed;
+  top:0;
+  width:100%;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 1000;
+}
+header nav a {
+  margin-left: 1.5rem;
+  font-weight: 500;
+  color: #00ffff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+header nav a.active, header nav a:hover {
+  color: #fff;
+  text-shadow: 0 0 15px #00ffff;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  display: none;
+  min-height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 6rem 2rem 2rem;
+  background-size: cover;
+  background-position: center;
+  transition: 0.5s;
+  box-shadow: inset 0 0 50px #00ffff22, inset 0 0 100px #1e90ff11;
+  border: 2px solid #00ffff33;
+  border-radius: 15px;
+}
+section.active {
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(30px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+/* LED background for sections without images */
+section:not([style*="background:url"]) {
+  background: repeating-linear-gradient(
+    45deg,
+    #00ffff10,
+    #00ffff10 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  background-size: 50px 50px;
+  animation: ledBackground 10s linear infinite;
+}
+@keyframes ledBackground {
+  0% {background-position:0 0;}
+  100% {background-position:1000px 1000px;}
+}
+
+/* ===== HERO ===== */
+#home h2 {
+  font-size: 3rem;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #1e90ff;
+  margin-bottom: 1rem;
+}
+#home p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 1rem;
+  line-height: 1.7;
+  color: #ccc;
+}
+#home .btn {
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(45deg, #00ffff, #1e90ff);
+  color: #000;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: 0.3s;
+  text-shadow: 0 0 10px #00ffff;
+  box-shadow: 0 0 15px #00ffff, 0 0 30px #1e90ff;
+}
+#home .btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px #00ffff, 0 0 60px #1e90ff, 0 0 90px #00ffff66;
+}
+
+/* ===== HOME LOGO ===== */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.home-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #00ffff;
+  box-shadow: 0 0 20px #00ffff, 0 0 40px #1e90ff;
+  animation: logoFloat 2.5s ease-in-out infinite alternate;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.home-logo:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 30px #00ffff, 0 0 60px #1e90ff;
+}
+@keyframes logoFloat {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-15px); }
+}
+
+/* ===== ABOUT ===== */
+.about-box {
+  background: rgba(0,0,0,0.7);
+  padding: 2rem;
+  border-radius: 15px;
+  max-width: 850px;
+  margin: 0 auto;
+  box-shadow: 0 0 20px #00ffff55;
+}
+.about-box p { margin-bottom: 1rem; }
+
+/* ===== PROJECTS ===== */
+.projects-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+.project-card {
+  min-width: 250px;
+  background: rgba(0,0,0,0.9);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.4s;
+  padding-bottom: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 15px #00ffffaa, 0 0 50px #1e90ff33;
+  animation: projectFade 0.8s ease-in;
+}
+.project-card img {
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-bottom:2px solid #00ffff;
+}
+.project-card:hover {
+  transform: scale(1.05) rotate(-1deg);
+  box-shadow: 0 0 30px #00ffff, 0 0 60px #1e90ff;
+}
+.project-card p {
+  padding: 0.8rem;
+  color:#fff;
+  font-weight:600;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px #00ffff;
+}
+.view-btn {
+  display:inline-block;
+  margin-top:0.5rem;
+  padding:0.6rem 1rem;
+  background: linear-gradient(45deg, #00ffff, #1e90ff);
+  color:#000;
+  border-radius:6px;
+  font-weight:700;
+  text-decoration:none;
+  transition:0.3s;
+  text-shadow: 0 0 5px #00ffff;
+  box-shadow: 0 0 10px #00ffff, 0 0 20px #1e90ff;
+}
+.view-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00ffff, 0 0 40px #1e90ff;
+}
+.single-center {
+  flex: 0 0 50%;
+  margin: 0 auto;
+}
+@keyframes projectFade {
+  from {opacity:0; transform: translateY(20px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
+/* ===== CONTACT ===== */
+.contact-box {
+  background: rgba(0,0,0,0.7);
+  padding: 2rem;
+  border-radius: 15px;
+  max-width: 500px;
+  margin: 1rem auto;
+  text-align: left;
+  box-shadow:0 0 20px #00ffff55;
+}
+.contact-box a { color:#00ffff; text-decoration:none; transition:0.3s; }
+.contact-box a:hover { color:#fff; text-shadow:0 0 10px #00ffff; }
+form input, form textarea {
+  padding:12px; border-radius:8px; border:none; outline:none; width:100%; margin-bottom:10px;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  border: 1px solid #00ffff44;
+  box-shadow: 0 0 5px #00ffff22;
+}
+form button {
+  background: linear-gradient(45deg, #00ffff, #1e90ff);
+  font-weight:700;
+  padding:12px;
+  cursor:pointer;
+  border:none;
+  border-radius:8px;
+  width:100%;
+  transition:0.3s;
+  text-shadow: 0 0 5px #00ffff;
+  box-shadow:0 0 10px #00ffff, 0 0 20px #1e90ff;
+}
+form button:hover {
+  transform: scale(1.05);
+  box-shadow:0 0 20px #00ffff, 0 0 40px #1e90ff;
+}
+
+/* ===== SECTION TITLES ===== */
+h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #1e90ff, 0 0 40px #00ffff55;
+}
+
+/* MEDIA */
+@media(max-width:768px){
+  section { padding:5rem 1rem 2rem; }
+  h2 { font-size:2.2rem; }
+  .single-center { flex: 0 0 100%; margin:0 auto; }
+}
+
+/* ===== PARTICLE OVERLAY ===== */
+.particle-bg {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: transparent;
+  z-index:0;
+  pointer-events:none;
+  animation: particleMove 20s linear infinite;
+}
+@keyframes particleMove {
+  0% {background-position:0 0;}
+  100% {background-position:1000px 1000px;}
+}
+</style>
+</head>
+<body>
+
+<!-- PARTICLE BACKGROUND -->
+<div class="particle-bg"></div>
+
+<header>
+  <nav>
+    <a class="active" data-target="home">Home</a>
+    <a data-target="about">About</a>
+    <a data-target="projects">Projects</a>
+    <a data-target="contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="active" style="background:url('programmer.jpg') center/cover no-repeat;">
+  <div class="logo-container">
+    <img src="nel.jpg" alt="Nel Harvey Logo" class="home-logo">
+  </div>
+  <h2>Hello! I'm Nel Harvey M. Passi</h2>
+  <p>First-year IT student at Occidental Mindoro State College. Passionate about web development, tech innovation, and creating interactive experiences.</p>
+  <p>When I'm not coding, you can find me riding motorcycles along the coast, listening to the waves, and watching sunsets. Life is about exploring, learning, and pushing boundaries.</p>
+  <a href="#" class="btn" id="viewProjects">View My Work</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="background:url('p.jpg') center/cover no-repeat; background-size:cover;">
+  <h2>About Me</h2>
+  <div class="about-box">
+    <p>My name is <strong>Nel Harvey M. Passi</strong>. I was born on June 23, 2007, and I am 18 years old. I live in Poblacion, Magsaysay, Occidental Mindoro. I am currently a first-year college student at <strong>Occidental Mindoro State College</strong>, pursuing a Bachelor of Science degree in Information Technology.</p>
+    <p>My mother is <strong>Junalyn M. Passi</strong> and my father is <strong>Nelson M. Passi</strong>. I have two older sisters, Abbey Janine M. Passi and Abigail M. Passi, and a younger brother named Gabriel M. Passi.</p>
+    <p>My hobbies include riding motorcycles, visiting the beach, photography, and experimenting with technology. These activities help me relax, find peace, and inspire creativity in my projects.</p>
+    <p>I aim to merge creativity with technology, developing web solutions and learning new programming skills along the way. My focus is on growing as a web developer and contributing innovative ideas to the digital world.</p>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="background:url('nel-projects-bg.jpg') center/cover no-repeat;">
+  <h2>My Projects</h2>
+  <div class="projects-row">
+    <div class="project-card">
+      <img src="story.jpg" alt="My Story in the Book">
+      <p>Interactive Web Portfolio</p>
+      <a href="Story-Nel.html" class="view-btn" target="_blank">View Project</a>
+    </div>
+    <div class="project-card">
+      <img src="pakbet.jpg" alt="Pakbet Recipe">
+      <p>LED Neon Dashboard</p>
+      <a href="Pakbet-PassiN.html" class="view-btn" target="_blank">View Project</a>
+    </div>
+    <div class="project-card">
+      <img src="burger.jpg" alt="Burger Order Form">
+      <p>Password Strength Checker</p>
+      <a href="Burger-PassiN.html" class="view-btn" target="_blank">View Project</a>
+    </div>
+  </div>
+  <div class="projects-row">
+    <div class="project-card">
+      <img src="bicycle.jpg" alt="Magazine">
+      <p>Task Management App</p>
+      <a href="CSS-PassiN.html" class="view-btn" target="_blank">View Project</a>
+    </div>
+    <div class="project-card single-center">
+      <img src="secure.jpg" alt="Password Checker">
+      <p>Weather Forecast Website</p>
+      <a href="Password Checker.html" class="view-btn" target="_blank">View Project</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:url('contact-bg.jpg') center/cover no-repeat;">
+  <h2>Contact Me</h2>
+  <p>Interested in working together? Feel free to reach out!</p>
+  <div class="contact-box">
+    <p><strong>Email:</strong> <a href="mailto:nelharveyp@gmail.com">nelharveyp@gmail.com</a></p>
+    <p><strong>Phone:</strong> <a href="tel:+639638155080">0963 815 5080</a></p>
+    <p><strong>Facebook:</strong> <a href="https://www.facebook.com/nel.harvey.passi.2024" target="_blank">Nel Harvey Passi </a></p>
+    <p><strong>Instagram:</strong> <a href="https://www.instagram.com/barrr_dagolzz?igsh=MXE5MTBucDloMnZxbg==" target="_blank">@barr_dagolzz</a></p>
+  </div>
+  <form action="https://formsubmit.co/nelpassi@example.com" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="thankyou.html">
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<script>
+// NAVIGATION
+const navLinks = document.querySelectorAll('header nav a');
+const sections = document.querySelectorAll('section');
+function showSection(target) {
+  sections.forEach(sec => sec.classList.remove('active'));
+  document.getElementById(target).classList.add('active');
+  navLinks.forEach(link => link.classList.remove('active'));
+  document.querySelector(`nav a[data-target="${target}"]`).classList.add('active');
+}
+navLinks.forEach(link => link.addEventListener('click', () => showSection(link.dataset.target)));
+// VIEW PROJECTS BUTTON
+document.getElementById('viewProjects').addEventListener('click', e => {
+  e.preventDefault();
+  showSection('projects');
+});
+</script>
+
+</body>
+</html>

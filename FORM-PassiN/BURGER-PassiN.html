@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Burger Haven Order Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-image: url('NEL.PNG');
+      background-size: cover;
+      background-position: center;
+      font-family: 'Montserrat', sans-serif;
+      color: #fff7e8;
+    }
+
+    .shop-title {
+      text-align: center;
+      margin-top: 30px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+    }
+
+    .shop-title h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 55px;
+      color: #ffe9c8;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+    }
+
+    .shop-title p {
+      font-size: 18px;
+      color: #ffd9a1;
+    }
+
+    .content {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 40px;
+      padding: 0 20px;
+    }
+
+    .form-container {
+      width: 380px;
+      background: rgba(0,0,0,0.45);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.4);
+    }
+
+    .form-container h1 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: #ffe7c2;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 13px;
+      margin-top: 10px;
+      display: block;
+    }
+
+    input, select, textarea {
+      width: 95%;
+      padding: 8px;
+      border: 1px solid rgba(255,235,200,0.7);
+      border-radius: 6px;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.6); }
+
+    .burger-option {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .burger-option select {
+      appearance: none;
+      -webkit-appearance: none;
+      background: #ffffffd9; /* solid visible background */
+      color: #000; /* black text */
+      border: 1px solid #333;
+      border-radius: 6px;
+      padding: 7px 25px 7px 7px;
+    }
+
+    .total-price {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffe9c8;
+    }
+
+    button {
+      background-color: #d4711f;
+      color: #fff;
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: bold;
+      border: none;
+      margin-top: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    button:hover {
+      background-color: #a85617;
+    }
+
+    .description-box {
+      width: 450px;
+      text-align: center;
+      background: rgba(0,0,0,0.45);
+      padding: 25px;
+      border-radius: 12px;
+      color: #ffe9c8;
+      font-size: 20px;
+      line-height: 1.6;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+    }
+
+    .description-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .receipt {
+      display: none;
+      background: rgba(255,255,255,0.95);
+      color: #333;
+      padding: 20px;
+      border-radius: 12px;
+      width: 330px;
+      margin-top: 25px;
+    }
+
+    .receipt h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="shop-title">
+    <h1>Burger Haven</h1>
+    <p>Home of Fresh, Juicy, Crafted Burgers</p>
+  </div>
+
+  <div class="content">
+
+    <div class="form-container">
+      <h1>Order Form</h1>
+      <form id="burgerForm">
+        <label>Full Name:</label>
+        <input type="text" required>
+        
+        <label>Address:</label>
+        <textarea rows="3" required></textarea>
+
+        <label>Contact Number:</label>
+        <input type="text" maxlength="11" required>
+
+        <label>Burger Size:</label>
+        <select id="burgerSize" required>
+          <option value="">Select Size</option>
+          <option value="Regular">Regular - ₱80</option>
+          <option value="Large">Large - ₱110</option>
+          <option value="XL">XL - ₱150</option>
+        </select>
+
+        <label>Add-ons:</label>
+        <div class="burger-option">
+          <span>Cheese (₱15)</span>
+          <select class="addon" data-price="15"><option value="0">0</option><option value="1">1</option><option value="2">2</option></select>
+        </div>
+        <div class="burger-option">
+          <span>Bacon (₱25)</span>
+          <select class="addon" data-price="25"><option value="0">0</option><option value="1">1</option><option value="2">2</option></select>
+        </div>
+        <div class="burger-option">
+          <span>Egg (₱10)</span>
+          <select class="addon" data-price="10"><option value="0">0</option><option value="1">1</option><option value="2">2</option></select>
+        </div>
+
+        <label>Amount Paid:</label>
+        <input type="number" id="amountPaid" min="0">
+
+        <div class="total-price" id="totalPrice">Total: ₱0</div>
+
+        <button type="submit">Submit Order</button>
+        <label>Payment Method:</label>
+  <select id="paymentMethod" required>
+    <option value="">Select Payment</option>
+    <option value="Cash">Cash on Delivery</option>
+    <option value="Gcash">Gcash</option>
+  </select>
+  <div id="cardInfo" style="display:none;">
+    <label>Card Number:</label>
+    <input type="text" id="cardNumber" maxlength="16" pattern="[0-9]{16}">
+  </div>
+</form>
+    </div>
+
+    <div class="description-box">
+      <h2>Burger Haven</h2>
+      Taste the perfect blend of juicy patties, toasted buns, and rich flavors crafted with passion. Every bite brings comfort, satisfaction, and pure burger bliss.
+    </div>
+  </div>
+
+  <div class="receipt" id="receiptBox">
+    <h2>Order Receipt</h2>
+    <div id="receiptContent"></div>
+  </div>
+
+  <script>
+    const burgerPrices = { Regular: 80, Large: 110, XL: 150 };
+
+    const form = document.getElementById("burgerForm");
+    const totalDisplay = document.getElementById("totalPrice");
+    const receiptBox = document.getElementById("receiptBox");
+    const receiptContent = document.getElementById("receiptContent");
+
+    let total = 0;
+
+    function computeTotal() {
+      const size = document.getElementById("burgerSize").value;
+      total = 0;
+
+      if (size) total += burgerPrices[size];
+
+      document.querySelectorAll('.addon').forEach(addon => {
+        const qty = parseInt(addon.value);
+        const price = parseInt(addon.dataset.price);
+        total += qty * price;
+      });
+
+      totalDisplay.textContent = "Total: ₱" + total.toLocaleString();
+    }
+
+    document.querySelectorAll('#burgerSize, .addon').forEach(el => el.addEventListener('change', computeTotal));
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const paid = parseFloat(document.getElementById("amountPaid").value || 0);
+      const change = paid - total;
+
+      receiptContent.innerHTML = `
+        <p><strong>Burger Size:</strong> ${document.getElementById("burgerSize").value}</p>
+        <p><strong>Total:</strong> ₱${total}</p>
+        <p><strong>Amount Paid:</strong> ₱${paid}</p>
+        <p><strong>Change:</strong> ${change >= 0 ? '₱'+change : '<span style="color:red">Insufficient Payment</span>'}</p>
+      `;
+
+      receiptBox.style.display = "block";
+    });
+  </script>
+
+</body>
+</html>
